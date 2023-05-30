@@ -3,7 +3,7 @@ const data = {
     pages: [
         {
             name: "index", 
-            pageName: "Home"
+            pageName: "Home",
             callToAction: {
                 src: "images/SmashGamesLogo-short.png",
                 altText: "Smash Games Logo"
@@ -11,7 +11,7 @@ const data = {
         },
         {
             name: "blast", 
-            pageName: "Inferno Blast"
+            pageName: "Inferno Blast",
             callToAction: {
                 src: "images/Inferno-Jumbotron.png"
             }
