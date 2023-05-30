@@ -1,25 +1,20 @@
 const data = {
-    cards: [
+    brandName: "Smash Games",
+    pages: [
         {
-            imgPath: "./somewhere.img",
-            imgAltText: "some alt text",
-            title: "The Title",
-            body: "some kind of body of text",
-            actionLink: "https://localhost:5500/games/game.html",
+            name: "index", 
+            pageName: "Home"
+            callToAction: {
+                src: "images/SmashGamesLogo-short.png",
+                altText: "Smash Games Logo"
+            }
         },
         {
-            imgPath: "./somewhere.img",
-            imgAltText: "some alt text",
-            title: "The Title",
-            body: "some kind of body of text",
-            actionLink: "https://localhost:5500/games/game.html",
-        },
-        {
-            imgPath: "./somewhere.img",
-            imgAltText: "some alt text",
-            title: "The Title",
-            body: "some kind of body of text",
-            actionLink: "https://localhost:5500/games/game.html",
-        },
+            name: "blast", 
+            pageName: "Inferno Blast"
+            callToAction: {
+                src: "images/Inferno-Jumbotron.png"
+            }
+        }
     ]
 }
