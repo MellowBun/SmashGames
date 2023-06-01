@@ -53,10 +53,59 @@ const data = {
                         }
                     ],
 
+                },
+                {
+                    type: "requirements",
+                    platforms: [
+                        "steam",
+                        "playstation",
+                        "xbox",
+                        "facebook",
+                        "twitter",
+                        "instagram",
+                        "patreon",
+                        "twitch",
+                        "youtube",
+                    ],
+                    requirements: [
+                        {
+                            type: "minimum-requiremnents",
+                            title: "Minimum Requirements",
+                            requirements: [
+                                { title: "OS", value: "Win7" },
+                                { title: "Processor", value: "Intel 13 or Ryzen 3"},
+                                { title: "RAM", value: "8gb"},
+                                { title: "Graphics", value: "GeForce GTX 570"},
+                                { title: "Storage", value: "1gb HDD"},
+                            ]
+                        },
+                        {
+                            type: "recommended-requiremnents",
+                            title: "Recommended Requirements",
+                            requirements: [
+                                { title: "OS", value: "Win11" },
+                                { title: "Processor", value: "Intel 19 or Ryzen 7"},
+                                { title: "RAM", value: "16gb"},
+                                { title: "Graphics", value: "GeForce GTX 2000"},
+                                { title: "Storage", value: "5gb SSD"},
+                            ]
+                        },
+                    ]                       
+                },
+                {
+                    type: "wishlist",
+                    title: "Wishlist",
+                },
+                {
+                    type: "faq",
+                    questions: [
+                        { question: "what does this do?", answer: "stuff"},
+                    ]
                 }
             ],
 
         }
-    ]
-    
+    ],
 }
+
+console.log(data.pages[1].blocks[2].cards[1].body);
