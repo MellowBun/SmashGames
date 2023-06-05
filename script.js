@@ -100,12 +100,22 @@ const data = {
                     type: "faq",
                     questions: [
                         { question: "what does this do?", answer: "stuff"},
+                        { question: "what does that do", answer: "that stuff"},
+                        { question: "what does any of this do", answer: "stuff I think"},
                     ]
                 }
             ],
 
         }
-    ],
+    ]
 }
 
-console.log(data.pages[1].blocks[2].cards[1].body);
+// we need a handle on the title
+let page = data.pages[1];
+
+document.title = data.brandName + " - " + page.pageName;
+// get access to the brand name and change to data.brandName
+document.getElementById("brand").innerHTML = data.brandName.toUpperCase();
+
+// get access to the page title h1 and change it to page.pageName
+document.getElementById("pageName").intterHTML = page.pageName
