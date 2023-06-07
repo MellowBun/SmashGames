@@ -113,6 +113,9 @@ const data = {
 // we need a handle on the title
 let page = data.pages[1];
 
+// get the main container
+let container = document.getElementById("main");
+
 document.title = data.brandName + " - " + page.pageName;
 // get access to the brand name and change to data.brandName
 document.getElementById("brand").innerHTML = data.brandName.toUpperCase();
@@ -129,6 +132,22 @@ document.getElementById("pageName").intterHTML = page.pageName
 // </div>
 
 createCallToAction(page.blocks[0]);
+createDescription(page.blocks[1]);
+
+createPage(page.blocks);
+
+function createPage(blocks) {
+    for (let i = 0; i < blocks.length; i++) {
+        let currentBlock = blocks[i];
+        if (currentBlock.type == "call-to-action") {
+            createCallToAction(currentBlock);
+        } else if (currentBlock.type == "description") {
+            createDescription(currentBlock);
+        } else {
+            console.log("no block template found");
+        }
+    }
+}
 
 function createImage(imgData) {
     let img = document.createElement("img");
@@ -157,13 +176,26 @@ function createCallToAction(blockData) {
 
     // add our image
     block.appendChild(createImage(blockData));
-    block.appendChild(createButtonLink(blockData));
-
-    // add our breake
+    // add our break
     block.appendChild(document.createElement("br"));
     // add our call to action button
+    block.appendChild(createButtonLink(blockData));
 
+    // add our block to main
+    container.appendChild(block);
+}
 
+function createDescription(blockData) {
+    // create our block
+    let block = document.createElement("div");
+    block.classList.add("description", "block", "accent-color");
+
+    // add some text here
+    let description = document.createElement("p");
+    description.classList.add ("description-text");
+    description.innerText = blockData.text;
+    block.appendChild(description);
+    
     // add our block to main
     container.appendChild(block);
 }
