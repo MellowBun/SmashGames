@@ -131,8 +131,6 @@ document.getElementById("pageName").intterHTML = page.pageName
     // <a class="btn" href="https://steampowered.com" target="_blank">Buy Now on Steam! <i class="fa-brands fa-steam-symbol"></i></a>
 // </div>
 
-createCallToAction(page.blocks[0]);
-createDescription(page.blocks[1]);
 
 createPage(page.blocks);
 
@@ -143,6 +141,8 @@ function createPage(blocks) {
             createCallToAction(currentBlock);
         } else if (currentBlock.type == "description") {
             createDescription(currentBlock);
+        } else if (currentBlock.type == "deck") {
+            createDeck(currentBlock);
         } else {
             console.log("no block template found");
         }
@@ -197,5 +197,38 @@ function createDescription(blockData) {
     block.appendChild(description);
     
     // add our block to main
+    container.appendChild(block);
+}
+
+function createDeck(blockData) {
+
+    let block = document.createElement("div");
+    block.classList.add("features");
+
+    let deck = document.createElement("div");
+    deck.classList.add("deck");
+    block.appendChild(deck);
+
+    for (let i = 0; i < blockData.cards.length; i++) {
+        let card = document.createElement("div");
+        card.classList.add("card");
+        card.appendChild(createImage({ 
+            src: blockData.cards[i].src,
+            alt: blockData.cards[i].altText
+        }));
+
+        let body = document.createElement("div");
+        body.classList.add("card-body");
+        card.appendChild(body);
+        let title = document.createElement("h3");
+        title.innerHTML = blockData.cards[i].title;
+        let text = document.createElement("p");
+        text.innerHTML = blockData.cards[i].body;
+
+        body.appendChild(title);
+        body.appendChild(text);
+        deck.appendChild(card);
+    }
+
     container.appendChild(block);
 }
