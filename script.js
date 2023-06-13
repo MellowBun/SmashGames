@@ -48,7 +48,7 @@ const data = {
                             type: "card",
                             src: "images/Inferno/Inferno-3-Short.png",
                             altText: "Inferno Blast Gameplay",
-                            title: "Epis Boss Battles",
+                            title: "Epic Boss Battles",
                             body: "Face off against towering demon bosses, each with their own unique strengths and weaknesses.",
                         },
                     ],
