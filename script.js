@@ -25,7 +25,7 @@ const data = {
                 },
                 {
                     type: "description",
-                    text: "text here"
+                    text: "Inferno Blast is an action-packed adventure game that takes players to a fiery realm of danger and excitement. In this game, you'll take on the role of a hero who must navigate through a series of treacherous levels filled with fiery obstacles and hordes of demons. With each level you complete, you'll unlock new weapons and power-ups to help you in your quest to defeat the ultimate demon boss. Can you survive the inferno and emerge victorious?",
                 },
                 {
                     type: "deck",
@@ -41,7 +41,7 @@ const data = {
                             type: "card",
                             src: "images/Inferno/Inferno-1-Short.png",
                             altText: "Inferno Blast Gameplay",
-                            title: "Upgradeable Weapons",
+                            title: "Upgradable Weapons",
                             body: "Customize your arsenal with a range of weapons and power-ups, including flamethrowers, rocket launchers, and more.",
                         },
                         {
@@ -50,9 +50,8 @@ const data = {
                             altText: "Inferno Blast Gameplay",
                             title: "Epis Boss Battles",
                             body: "Face off against towering demon bosses, each with their own unique strengths and weaknesses.",
-                        }
+                        },
                     ],
-
                 },
                 {
                     type: "requirements",
@@ -69,14 +68,14 @@ const data = {
                     ],
                     requirements: [
                         {
-                            type: "minimum-requiremnents",
+                            type: "minimum-requirements",
                             title: "Minimum Requirements",
                             requirements: [
                                 { title: "OS", value: "Win7" },
-                                { title: "Processor", value: "Intel 13 or Ryzen 3"},
-                                { title: "RAM", value: "8gb"},
-                                { title: "Graphics", value: "GeForce GTX 570"},
-                                { title: "Storage", value: "1gb HDD"},
+                                { title: "Processor", value: "Intel 13 or Ryzen 3" },
+                                { title: "RAM", value: "8gb" },
+                                { title: "Graphics", value: "GeForce GTX 570" },
+                                { title: "Storage", value: "1gb HDD" },
                             ]
                         },
                         {
@@ -84,10 +83,10 @@ const data = {
                             title: "Recommended Requirements",
                             requirements: [
                                 { title: "OS", value: "Win11" },
-                                { title: "Processor", value: "Intel 19 or Ryzen 7"},
-                                { title: "RAM", value: "16gb"},
-                                { title: "Graphics", value: "GeForce GTX 2000"},
-                                { title: "Storage", value: "5gb SSD"},
+                                { title: "Processor", value: "Intel 19 or Ryzen 7" },
+                                { title: "RAM", value: "16gb" },
+                                { title: "Graphics", value: "GeForce GTX 2000" },
+                                { title: "Storage", value: "5gb SSD" },
                             ]
                         },
                     ]                       
@@ -99,40 +98,31 @@ const data = {
                 {
                     type: "faq",
                     questions: [
-                        { question: "what does this do?", answer: "stuff"},
-                        { question: "what does that do", answer: "that stuff"},
-                        { question: "what does any of this do", answer: "stuff I think"},
+                        { question: "what does this do?", answer: "stuff" },
+                        { question: "what does that do", answer: "that stuff" },
+                        { question: "what does any of this do", answer: "stuff I think" },
                     ]
                 }
             ],
-
         }
     ]
 }
 
-// we need a handle on the title
 let page = data.pages[1];
 
 // get the main container
 let container = document.getElementById("main");
 
 document.title = data.brandName + " - " + page.pageName;
-// get access to the brand name and change to data.brandName
+// get access to the branding and change to data.brandName
 document.getElementById("brand").innerHTML = data.brandName.toUpperCase();
 
 // get access to the page title h1 and change it to page.pageName
-document.getElementById("pageName").intterHTML = page.pageName
+document.getElementById("pageName").innterHTML = page.pageName;
 
-// this is the code to create blocks
-
-// <div class="call-to-action">
-    // <img src="images/Inferno-Jumbotron.png" alt="Inferno Blast Gameplay" />
-    // <br />
-    // <a class="btn" href="https://steampowered.com" target="_blank">Buy Now on Steam! <i class="fa-brands fa-steam-symbol"></i></a>
-// </div>
-
-
+// creating all of the blocks on the page
 createPage(page.blocks);
+
 
 function createPage(blocks) {
     for (let i = 0; i < blocks.length; i++) {
@@ -167,9 +157,6 @@ function createButtonLink(linkData) {
 }
 
 function createCallToAction(blockData) {
-    // get the main container
-    let container = document.getElementById("main");
-
     // create our block
     let block = document.createElement("div");
     block.classList.add("call-to-action");
@@ -192,7 +179,7 @@ function createDescription(blockData) {
 
     // add some text here
     let description = document.createElement("p");
-    description.classList.add ("description-text");
+    description.classList.add("description-text");
     description.innerText = blockData.text;
     block.appendChild(description);
     
@@ -202,12 +189,21 @@ function createDescription(blockData) {
 
 function createDeck(blockData) {
 
+    // creating the feature div
     let block = document.createElement("div");
     block.classList.add("features");
 
     let deck = document.createElement("div");
     deck.classList.add("deck");
     block.appendChild(deck);
+
+    /* <div class="card">
+            <img src="images/Inferno/Inferno-2-short.png" alt="placeholder">
+            <div class="card-body">
+                <h3>Dynamic Environments</h3>
+                <p>Navigate through a variety of fiery landscapes, including lava pits, crumbling ruins, and demonic strongholds.</p>
+            </div>
+        </div> */
 
     for (let i = 0; i < blockData.cards.length; i++) {
         let card = document.createElement("div");
